@@ -4,7 +4,9 @@
 --name - VARCHAR(255)
 --skills - VARCHAR(255)
 
---Part 2
+--Part 2 -> Write query to list names of employers in St. Louis
+SELECT name FROM employer
+WHERE location = "St. Louis City";
 
 --Part 3
 
