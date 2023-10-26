@@ -20,6 +20,7 @@ public class SkillController {
 
     @GetMapping("/")
     public String index(Model model) {
+        model.addAttribute("title", "Skills");
         model.addAttribute("skills", skillRepository.findAll());
         return "skills/index";
     }
@@ -34,7 +35,6 @@ public class SkillController {
     public String processAddSkillForm(@ModelAttribute @Valid Skill newSkill, Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("skills", skillRepository.findAll());
             return "skills/add";
         }
         skillRepository.save(newSkill);

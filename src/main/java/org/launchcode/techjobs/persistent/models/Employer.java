@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Size;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Employer extends AbstractEntity {
@@ -16,9 +17,9 @@ public class Employer extends AbstractEntity {
     @Size(min = 2, max = 50, message = "Location must be between 2 and 50 characters.")
     private String location;
 
-    @OneToMany
+    @OneToMany()
     @JoinColumn(name = "employer_id")
-    private final List<Job> jobs =  new ArrayList<>();
+    private List<Job> jobs =  new ArrayList<>();
 
     public Employer() {
     }
@@ -33,5 +34,17 @@ public class Employer extends AbstractEntity {
 
     public List<Job> getJobs() {
         return jobs;
+    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
+    }
+
+    @Override
+    public String toString() {
+        return "Employer{" +
+                "location='" + location + '\'' +
+                ", jobs=" + jobs +
+                '}';
     }
 }
