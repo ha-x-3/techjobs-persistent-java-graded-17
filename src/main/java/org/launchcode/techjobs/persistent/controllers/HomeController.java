@@ -82,4 +82,22 @@ public class HomeController {
         return "view";
     }
 
+    @GetMapping("delete")
+    public String displayDeleteJobsForm(Model model) {
+        model.addAttribute("title", "Delete Jobs");
+        model.addAttribute("jobs", jobRepository.findAll());
+        return "delete";
+    }
+
+    @PostMapping("delete")
+    public String processDeleteJobsForm(@RequestParam(required = false) int[] jobIds) {
+
+        if (jobIds != null) {
+            for (int id : jobIds) {
+                jobRepository.deleteById(id);
+            }
+        }
+        return "redirect:";
+    }
+
 }

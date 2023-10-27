@@ -24,6 +24,11 @@ public class Employer extends AbstractEntity {
     public Employer() {
     }
 
+    public Employer(String location, List<Job> jobs) {
+        this.location = location;
+        this.jobs = jobs;
+    }
+
     public String getLocation() {
         return location;
     }
@@ -40,11 +45,4 @@ public class Employer extends AbstractEntity {
         this.jobs = jobs;
     }
 
-    @Override
-    public String toString() {
-        return "Employer{" +
-                "location='" + location + '\'' +
-                ", jobs=" + jobs +
-                '}';
-    }
 }

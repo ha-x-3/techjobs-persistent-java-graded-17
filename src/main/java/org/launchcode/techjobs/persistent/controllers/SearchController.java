@@ -32,12 +32,14 @@ public class SearchController {
         Iterable<Job> jobs;
         if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")){
             jobs = jobRepository.findAll();
+            model.addAttribute("jobs", jobs);
         } else {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm, jobRepository.findAll());
+            model.addAttribute("jobs", jobs);
         }
         model.addAttribute("columns", columnChoices);
         model.addAttribute("title", "Jobs with " + columnChoices.get(searchType) + ": " + searchTerm);
-        model.addAttribute("jobs", jobs);
+
 
         return "search";
     }
