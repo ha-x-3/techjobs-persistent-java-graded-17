@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="~{fragments :: head}"></head>
-<body class="container  body-content">
+<body class="container  body-content" style="background-color: #c6c5ca;">
 <h1>Add Employer</h1>
 
 <nav th:replace="~{fragments :: page-header}"></nav>
@@ -21,6 +21,13 @@
 
     <input type="submit" value="Add Employer" />
 </form>
+
+<div>
+    <h3>Current Employers:</h3>
+    <ul>
+        <li th:each="employer : ${employers}" th:text="${employer.name} + ' - ' + ${employer.location}"></li>
+    </ul>
+</div>
 
 </body>
 </html>

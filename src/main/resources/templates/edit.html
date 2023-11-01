@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="~{fragments :: head}"></head>
-<body class="container body-content" style="background-image: url(/images/background.jpg);
-             background-size: cover;">
+<body class="container body-content">
 
 <nav th:replace="~{fragments :: page-header}"></nav>
 
-<h1>Add Job</h1>
+<h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
 <form method="post" style="max-width:600px;">
     <div class="form-group">
@@ -26,7 +25,7 @@
     </div>
 
     <div class="form-group">
-        <label th:for="skills">Skills:</label>
+        <label th:for="skills">Skills</label>
         <th:block th:each="skill : ${skills}">
             <input type="checkbox" name="skills" th:value="${skill.id}">
             <label th:text="${skill.name}"></label>
@@ -34,9 +33,8 @@
         <a th:href="@{'/skills/add'}">Add Skills</a>
     </div>
 
-    <input type="submit" value="Add Job" />
+    <input type="submit" value="Edit Job" />
 </form>
-<small style="position: fixed; bottom: 0;">Photo by <a href="https://unsplash.com/@sigmund?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Sigmund</a> on <a href="https://unsplash.com/photos/rWE7bTqgMJE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-</small>
+
 </body>
 </html>

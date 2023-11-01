@@ -99,5 +99,26 @@ public class HomeController {
         }
         return "redirect:";
     }
+//
+//    @GetMapping("edit/{jobId}")
+//    public String processAndDisplayJobsToEditForm(Model model, @PathVariable int jobId) {
+//        Job job = jobRepository.findById(jobId).get();
+//        model.addAttribute("job", job);
+//        String title = "Edit Job " + job.getName() + " (id=" + job.getId() + ")";
+//        model.addAttribute("title", title);
+//        model.addAttribute("employers", employerRepository.findAll());
+//        model.addAttribute("skills", skillRepository.findAll());
+//        return "edit";
+//    }
+//
+//    @RequestMapping(value="edit", method={ RequestMethod.GET, RequestMethod.POST})
+//    public String processEditForm(Model model, int jobId, String name, Employer employer, List<Skill> skills) {
+//        Job job = jobRepository.findById(jobId).get();
+//        job.setName(name);
+//        job.setEmployer(employer);
+//        job.setSkills(skills);
+//        jobRepository.save(job);
+//        return "redirect:/index";
+//    }
 
 }
