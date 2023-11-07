@@ -113,7 +113,7 @@ public class HomeController {
 //
 //    @RequestMapping(value="edit", method={ RequestMethod.GET, RequestMethod.POST})
 //    public String processEditForm(Model model, int jobId, String name, Employer employer, List<Skill> skills) {
-//        Job job = jobRepository.findById(jobId).get();
+//        Job job = jobRepository.findById(jobId).get();  ///***ADD OPTIONAL****///
 //        job.setName(name);
 //        job.setEmployer(employer);
 //        job.setSkills(skills);
